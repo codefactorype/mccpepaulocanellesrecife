@@ -6,284 +6,288 @@
     <title>Balanço Mensal</title>
     <style>
         /* Estilos CSS */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-header {
-    text-align: center;
-    background-color: #212121;
-    color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-header p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-.container {
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-    font-weight: bold;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 18px;
-    color: #212121;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 14px; /* Ajuste para smartphones */
-}
-
-th, td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 8px; /* Reduzido para melhor ajuste em telas pequenas */
-}
-
-th {
-    background-color: #212121;
-    font-weight: bold;
-    color: #fff;
-}
-
-td input {
-    width: 90%; /* Ajuste para evitar que inputs ultrapassem os limites */
-    padding: 6px; /* Reduzido para telas menores */
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.btn-container {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #212121;
-    color: white;
-    padding: 10px 15px; /* Reduzido para melhor visualização */
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.btn:hover {
-    background-color: #333333;
-}
-
-.balance-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.totals {
-    text-align: center;
-    font-size: 16px; /* Reduzido para responsividade */
-    margin-top: 20px;
-}
-
-.totals span {
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.totals-table {
-    margin: 0 auto;
-    width: 90%; /* Ajustado para caber em telas pequenas */
-    border: 1px solid #ddd;
-    margin-top: 20px;
-    font-size: 14px; /* Reduzido para smartphones */
-}
-
-.totals-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    font-size: 14px;
-    text-align: left;
-}
-
-.totals-table td:last-child span {
-    text-decoration: none;
-    cursor: default;
-    color: #000;
-}
-
-/* Estilos para o modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 20% auto; /* Centralizado em telas pequenas */
-    padding: 15px;
-    border: 1px solid #888;
-    width: 90%; /* Ajustado para caber em telas menores */
-    max-width: 500px;
-    border-radius: 8px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-}
-
-/* Responsividade para smartphones */
-@media only screen and (max-width: 600px) {
-    /* Remove margens e padding do body para ajustar à largura da tela */
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        overflow-x: hidden; /* Evita rolagem horizontal indesejada */
-        text-align: center; /* Centraliza o texto no corpo */
-    }
-
-    /* Header ocupa 100% da largura */
-    header {
-        text-align: center;
-        padding: 15px;
-        margin: 0; /* Remove margens extras */
-        width: 100%; /* Garante que ocupe toda a tela */
-        box-sizing: border-box; /* Inclui padding na largura total */
-    }
-
-    header h1 {
-        font-size: 20px;
-    }
-
-    header p {
-        font-size: 13px;
-    }
-
-    /* Container principal */
-    .container {
-        margin: 0 auto; /* Centraliza o conteúdo */
-        padding: 10px;
-        width: 100%; /* Garante que ocupe toda a largura */
-        box-sizing: border-box;
-        text-align: center; /* Centraliza o conteúdo dentro do contêiner */
-    }
-
-    /* Tabelas */
-    table {
-        font-size: 12px;
-        border-collapse: collapse;
-        width: 100%; /* Ocupa toda a largura */
-        margin: 0 auto; /* Centraliza a tabela horizontalmente */
-        overflow-x: auto;
-        display: block; /* Permite rolagem horizontal */
-        text-align: center; /* Centraliza o texto dentro da tabela */
-    }
-
-    th, td {
-        padding: 8px;
-        text-align: center; /* Centraliza o conteúdo das células */
-        word-wrap: break-word;
-    }
-
-    td input {
-        width: 100%;
-        font-size: 12px;
-        padding: 6px;
-        box-sizing: border-box;
-        text-align: center; /* Centraliza os campos de entrada */
-    }
-
-    /* Botões */
-    .btn-container {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 12px;
-        border-radius: 8px;
-        width: 100%;
-    }
-
-    /* Totais */
-    .totals {
-        font-size: 14px;
-        margin-top: 20px;
-        text-align: center; /* Centraliza o texto da seção de totais */
-    }
-
-    .totals-table {
-        width: 100%;
-        margin: 0 auto; /* Centraliza a tabela de totais */
-        font-size: 12px;
-        text-align: center; /* Centraliza o texto dentro da tabela */
-    }
-
-    .totals-table td {
-        padding: 8px;
-        text-align: center; /* Centraliza o conteúdo das células */
-    }
-
-    /* Modais */
-    .modal-content {
-        margin: 25% auto;
-        padding: 10px;
-        width: 95%; /* Ajustado para caber em telas menores */
-        text-align: center; /* Centraliza o conteúdo do modal */
-    }
-
-    .close {
-        font-size: 22px;
-    }
-}
-
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        header {
+            text-align: center;
+            background-color: #212121;
+            color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        header p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-weight: bold;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 18px;
+            color: #212121;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 14px; /* Ajuste para smartphones */
+            margin: 0 auto; /* Centraliza a tabela */
+            text-align: center; /* Centraliza o texto dentro da tabela */
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px; /* Reduzido para melhor ajuste em telas pequenas */
+        }
+        
+        th {
+            background-color: #212121;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        td input {
+            width: 90%; /* Ajuste para evitar que inputs ultrapassem os limites */
+            padding: 6px; /* Reduzido para telas menores */
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #212121;
+            color: white;
+            padding: 10px 15px; /* Reduzido para melhor visualização */
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: #333333;
+        }
+        
+        .balance-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .totals {
+            text-align: center;
+            font-size: 16px; /* Reduzido para responsividade */
+            margin-top: 20px;
+        }
+        
+        .totals span {
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .totals-table {
+            margin: 0 auto;
+            width: 90%; /* Ajustado para caber em telas pequenas */
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            font-size: 14px; /* Reduzido para smartphones */
+            text-align: center; /* Centraliza o texto dentro da tabela */
+        }
+        
+        .totals-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-size: 14px;
+            text-align: center; /* Centraliza o conteúdo das células */
+        }
+        
+        .totals-table td:last-child span {
+            text-decoration: none;
+            cursor: default;
+            color: #000;
+        }
+        
+        /* Estilos para o modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 20% auto; /* Centralizado em telas pequenas */
+            padding: 15px;
+            border: 1px solid #888;
+            width: 90%; /* Ajustado para caber em telas menores */
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center; /* Centraliza o conteúdo do modal */
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+        
+        /* Responsividade para smartphones */
+        @media only screen and (max-width: 600px) {
+            /* Remove margens e padding do body para ajustar à largura da tela */
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+                /* Removido text-align: center para evitar alinhamento indesejado */
+            }
+        
+            /* Header ocupa 100% da largura */
+            header {
+                text-align: center;
+                padding: 15px;
+                margin: 0; /* Remove margens extras */
+                width: 100%; /* Garante que ocupe toda a tela */
+                box-sizing: border-box; /* Inclui padding na largura total */
+            }
+        
+            header h1 {
+                font-size: 20px;
+            }
+        
+            header p {
+                font-size: 13px;
+            }
+        
+            /* Container principal */
+            .container {
+                margin: 0 auto; /* Centraliza o conteúdo */
+                padding: 10px;
+                width: 100%; /* Garante que ocupe toda a largura */
+                box-sizing: border-box;
+                /* Removido text-align: center para evitar alinhamento indesejado */
+            }
+        
+            /* Tabelas */
+            table {
+                font-size: 12px;
+                border-collapse: collapse;
+                width: 100%; /* Ocupa toda a largura */
+                margin: 0 auto; /* Centraliza a tabela horizontalmente */
+                overflow-x: auto;
+                display: block; /* Permite rolagem horizontal */
+                text-align: center; /* Centraliza o texto dentro da tabela */
+            }
+        
+            th, td {
+                padding: 8px;
+                text-align: center; /* Centraliza o conteúdo das células */
+                word-wrap: break-word;
+            }
+        
+            td input {
+                width: 100%;
+                font-size: 12px;
+                padding: 6px;
+                box-sizing: border-box;
+                text-align: center; /* Centraliza os campos de entrada */
+            }
+        
+            /* Botões */
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+        
+            .btn {
+                font-size: 16px;
+                padding: 12px;
+                border-radius: 8px;
+                width: 100%;
+            }
+        
+            /* Totais */
+            .totals {
+                font-size: 14px;
+                margin-top: 20px;
+                text-align: center; /* Centraliza o texto da seção de totais */
+            }
+        
+            .totals-table {
+                width: 100%;
+                margin: 0 auto; /* Centraliza a tabela de totais */
+                font-size: 12px;
+                text-align: center; /* Centraliza o texto dentro da tabela */
+            }
+        
+            .totals-table td {
+                padding: 8px;
+                text-align: center; /* Centraliza o conteúdo das células */
+            }
+        
+            /* Modais */
+            .modal-content {
+                margin: 25% auto;
+                padding: 10px;
+                width: 95%; /* Ajustado para caber em telas menores */
+                text-align: center; /* Centraliza o conteúdo do modal */
+            }
+        
+            .close {
+                font-size: 22px;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -594,10 +598,26 @@ td input {
         }
 
         function exportData() {
-            const element = document.getElementById('exportContent');
+            const element = document.getElementById('exportContent').cloneNode(true);
+
+            // Formatar as datas para o formato DD/MM/YYYY
+            const dateInputs = element.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                const dateValue = input.value;
+                if (dateValue) {
+                    const [year, month, day] = dateValue.split('-');
+                    // Substituir o input pelo texto formatado
+                    const formattedDate = `${day}/${month}/${year}`;
+                    const textNode = document.createElement('span');
+                    textNode.textContent = formattedDate;
+                    input.parentNode.replaceChild(textNode, input);
+                } else {
+                    input.parentNode.textContent = '';
+                }
+            });
 
             // Esconder elementos não desejados no PDF
-            const elementsToHide = document.querySelectorAll('.no-print');
+            const elementsToHide = element.querySelectorAll('.no-print');
             elementsToHide.forEach(el => el.style.display = 'none');
 
             const options = {
@@ -607,10 +627,7 @@ td input {
                 html2canvas:  { scale: 2 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
             };
-            html2pdf().set(options).from(element).save().then(() => {
-                // Mostrar os elementos novamente após gerar o PDF
-                elementsToHide.forEach(el => el.style.display = '');
-            });
+            html2pdf().set(options).from(element).save();
         }
 
         function attachModalEvents() {

@@ -287,20 +287,44 @@
                 font-size: 22px;
             }
         }
-        
+
+        /* Controle de Quebras de Página para PDF */
+        @media print {
+            /* Evita quebras de página dentro das tabelas e seções */
+            table, tr, td, th {
+                page-break-inside: avoid;
+            }
+
+            section, .balance-header, .totals {
+                page-break-inside: avoid;
+            }
+
+            /* Força quebra de página antes de seções importantes, se necessário */
+            /* Exemplo:
+            .section-title {
+                page-break-before: always;
+            }
+            */
+        }
+
+        /* Classes específicas para evitar quebras de página */
+        .avoid-page-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
     </style>
 </head>
 <body>
     <!-- Envolver todo o conteúdo que será exportado em um elemento -->
     <div id="exportContent">
-        <header>
+        <header class="avoid-page-break">
             <h1>Balanço Mensal</h1>
             <p>Instituto PE. Paulo Canelles do Recife</p>
             <p>CNPJ: 11.500.204/0001-08</p>
         </header>
 
         <main class="container">
-            <div class="balance-header no-print">
+            <div class="balance-header no-print avoid-page-break">
                 <label for="month">Mês:</label>
                 <select id="month">
                     <option value="Janeiro">Janeiro</option>
@@ -322,7 +346,7 @@
                 <button class="btn" id="updateButton">Atualizar</button>
             </div>
 
-            <section>
+            <section class="avoid-page-break">
                 <div id="balanceTitle" class="section-title">
                     Balancete Mensal - Novembro 2024
                 </div>
@@ -333,7 +357,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="avoid-page-break">
                 <div class="section-title">RECEITAS</div>
                 <table id="receitasTable">
                     <thead>
@@ -357,7 +381,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="avoid-page-break">
                 <div class="section-title">DESPESAS</div>
                 <table id="despesasTable">
                     <thead>
@@ -381,7 +405,7 @@
                 </div>
             </section>
 
-            <section class="totals">
+            <section class="totals avoid-page-break">
                 <table class="totals-table">
                     <tr>
                         <td><span data-modal="saldoAnteriorModal">Saldo Anterior:</span></td>
@@ -620,12 +644,19 @@
             const elementsToHide = element.querySelectorAll('.no-print');
             elementsToHide.forEach(el => el.style.display = 'none');
 
+            // Adicionar classes para controle de quebras de página
+            const sections = element.querySelectorAll('section, header, .totals');
+            sections.forEach(section => {
+                section.classList.add('avoid-page-break');
+            });
+
             const options = {
                 margin:       [0.5, 0.5, 0.5, 0.5],
                 filename:     'balanco-mensal.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
             };
             html2pdf().set(options).from(element).save();
         }
@@ -644,7 +675,7 @@
             closes.forEach(close => {
                 close.addEventListener('click', () => {
                     const modalId = close.getAttribute('data-close');
-                    const modal = document.getElementById(modalId);
+                    const modal = document.getElementById(modalId);p
                     modal.style.display = 'none';
                 });
             });

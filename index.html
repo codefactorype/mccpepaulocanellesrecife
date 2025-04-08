@@ -111,7 +111,7 @@
 
         /* Modal */
         .modal {
-            display: none;
+            display: none; /* Oculto por padrão */
             position: fixed;
             top: 0;
             left: 0;
@@ -154,10 +154,40 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s;
+            margin: 5px;
         }
 
         .modal-content button:hover {
             background: #3b3b3b;
+        }
+
+        /* Bloco de Atualizações Destacado */
+        .upcoming-updates {
+            background: #fffae6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            /* Centraliza todo o conteúdo dentro do bloco */
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .upcoming-updates p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        
+        .upcoming-updates ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 5px 0;
+            /* Centraliza o texto dos itens da lista */
+            text-align: center;
+        }
+        
+        .upcoming-updates li {
+            margin: 3px 0;
         }
 
         /* Cards */
@@ -221,6 +251,7 @@
     <div class="header-buttons" id="header-buttons">
         <button onclick="logout()">Sair</button>
         <button onclick="openModal()">Suporte</button>
+        <button onclick="openTutorialModal()">Tutorial</button>
     </div>
 
     <!-- Área de Login -->
@@ -243,13 +274,34 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal de Suporte -->
     <div class="modal" id="support-modal">
         <div class="modal-content">
             <h2>Suporte Técnico</h2>
             <p><strong>E-mail:</strong> codefactory.pe@gmail.com</p>
             <p>ou entrar em contato <strong>"exclusivamente"</strong> através de mensagens pelo WhatsApp: <strong>(81) 98413-2629</strong></p>
             <button onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Tutorial -->
+    <div class="modal" id="tutorial-modal">
+        <div class="modal-content">
+            <h2>Tutorial</h2>
+            <!-- Bloco de atualizações centralizado -->
+            <div class="upcoming-updates">
+                <p>Próximas atualizações!</p>
+                <ul>
+                    <li>09/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (manual)</li>
+                    <li>11/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (manual) versão mobile</li>
+                    <li>12/04/2025 Tutorial escrito do Balanço Financeiro Mensal (auto)</li>
+                    <li>14/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (auto)</li>
+                    <li>19/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (auto) versão mobile</li>
+                </ul>
+            </div>
+            <p>07/04/2025 - Tutorial do Balanço Financeiro Mensal (manual)</p>
+            <button onclick="redirectToTutorial()">Acessar</button>
+            <button onclick="closeTutorialModal()">Fechar</button>
         </div>
     </div>
 
@@ -294,6 +346,19 @@
 
         function redirectToAuto() {
             window.open("https://codefactorype.github.io/mccpepaulocanellesrecife-auto/", "_blank");
+        }
+
+        // Funções para o modal de Tutorial
+        function openTutorialModal() {
+            document.getElementById("tutorial-modal").style.display = "flex";
+        }
+
+        function closeTutorialModal() {
+            document.getElementById("tutorial-modal").style.display = "none";
+        }
+
+        function redirectToTutorial() {
+            window.open("https://codefactorype.github.io/mccpcanellesrecife-tutorial-manual/", "_blank");
         }
     </script>
 </body>

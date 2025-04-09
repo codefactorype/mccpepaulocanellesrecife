@@ -292,8 +292,7 @@
     <!-- Modal de Vídeo -->
     <div class="modal" id="video-modal">
         <div class="modal-content" style="max-width: 800px; width: 90%;">
-            <!-- A tag iframe foi alterada para não ter src estático; este será definido via JavaScript para incluir autoplay -->
-            <iframe id="video-iframe" frameborder="0" allow="autoplay" allowfullscreen style="width: 100%; height: 450px;"></iframe>
+            <iframe id="video-iframe" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="width: 100%; height: 450px;"></iframe>
             <button onclick="closeVideoModal()">Fechar</button>
         </div>
     </div>
@@ -345,13 +344,11 @@
         }
         // Funções para o Modal de Vídeo (09/04)
         function openVideoModal() {
-            // Define o src do iframe com parâmetro autoplay para iniciar a reprodução automaticamente
             var videoUrl = "https://drive.google.com/file/d/1tYwhokqQs51SL2ip2KG0O3RZ_jhETRX6/preview?autoplay=1";
             document.getElementById("video-iframe").src = videoUrl;
             document.getElementById("video-modal").style.display = "flex";
         }
         function closeVideoModal() {
-            // Remove o src para interromper a reprodução
             document.getElementById("video-iframe").src = "";
             document.getElementById("video-modal").style.display = "none";
         }

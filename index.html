@@ -11,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f9f9f9;
@@ -19,7 +18,6 @@
             line-height: 1.6;
             text-align: center;
         }
-
         /* Cabeçalho */
         header {
             background: linear-gradient(90deg, #3b3b3b, #515151, #7a7a7a);
@@ -27,16 +25,13 @@
             padding: 20px 0;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
-
         header h1 {
             font-size: 28px;
             margin-bottom: 5px;
         }
-
         header p {
             font-size: 16px;
         }
-
         /* Botões abaixo do cabeçalho */
         .header-buttons {
             margin: 20px auto;
@@ -44,7 +39,6 @@
             justify-content: center;
             gap: 20px;
         }
-
         .header-buttons button {
             padding: 10px 20px;
             font-size: 16px;
@@ -55,11 +49,9 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
         .header-buttons button:hover {
             background: #515151;
         }
-
         /* Área de Login */
         .login-container {
             margin: 50px auto;
@@ -69,13 +61,11 @@
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
-
         .login-container h2 {
             margin-bottom: 20px;
             font-size: 24px;
             color: #333;
         }
-
         .login-container input[type="password"] {
             width: 100%;
             padding: 15px;
@@ -84,7 +74,6 @@
             border-radius: 8px;
             font-size: 16px;
         }
-
         .login-container button {
             width: 100%;
             padding: 15px;
@@ -96,20 +85,17 @@
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .login-container button:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .login-container p {
             margin-top: 10px;
             font-size: 14px;
             color: #FF6F6F;
             display: none;
         }
-
-        /* Modal */
+        /* Modal genérico */
         .modal {
             display: none; /* Oculto por padrão */
             position: fixed;
@@ -122,7 +108,6 @@
             align-items: center;
             z-index: 1000;
         }
-
         .modal-content {
             background: #fff;
             padding: 20px;
@@ -132,19 +117,16 @@
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .modal-content h2 {
             margin-bottom: 10px;
             font-size: 20px;
             color: #333;
         }
-
         .modal-content p {
             font-size: 14px;
             color: #666;
             margin-bottom: 20px;
         }
-
         .modal-content button {
             padding: 10px 20px;
             font-size: 14px;
@@ -156,55 +138,46 @@
             transition: background 0.3s;
             margin: 5px;
         }
-
         .modal-content button:hover {
             background: #3b3b3b;
         }
-
         /* Bloco de Atualizações Destacado */
         .upcoming-updates {
             background: #fffae6;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 15px;
-            /* Centraliza todo o conteúdo dentro do bloco */
             text-align: center;
             font-size: 14px;
             color: #333;
         }
-        
         .upcoming-updates p {
             margin: 5px 0;
             font-weight: bold;
         }
-        
         .upcoming-updates ul {
             list-style-type: none;
             padding: 0;
             margin: 5px 0;
-            /* Centraliza o texto dos itens da lista */
             text-align: center;
         }
-        
         .upcoming-updates li {
             margin: 3px 0;
         }
-
-        /* Cards */
+        /* Containers de Cards */
         .cards-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-
         .card {
             flex: 1 1 calc(33.333% - 40px);
             max-width: 300px;
-            aspect-ratio: 1 / 1; /* Quadrado */
+            aspect-ratio: 1 / 1;
             padding: 20px;
             background: #ffffff;
-            border-radius: 16px; /* Cantos arredondados */
+            border-radius: 16px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -214,29 +187,32 @@
             justify-content: center;
             align-items: center;
         }
-
         .card h3 {
             font-size: 18px;
             margin: 0;
             color: #333;
         }
-
         .card:hover {
             transform: scale(1.1);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         }
-
         /* Responsividade */
         @media (max-width: 768px) {
             .card {
                 flex: 1 1 calc(50% - 20px);
             }
         }
-
         @media (max-width: 480px) {
             .card {
                 flex: 1 1 calc(100% - 20px);
             }
+        }
+        /* Estilos para entradas de Tutorial */
+        .tutorial-entry {
+            margin-top: 20px;
+        }
+        .tutorial-entry p {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -292,16 +268,33 @@
             <div class="upcoming-updates">
                 <p>Próximas atualizações!</p>
                 <ul>
-                    <li>09/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (manual)</li>
                     <li>11/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (manual) versão mobile</li>
                     <li>12/04/2025 Tutorial escrito do Balanço Financeiro Mensal (auto)</li>
                     <li>14/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (auto)</li>
                     <li>19/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (auto) versão mobile</li>
                 </ul>
             </div>
-            <p>07/04/2025 - Tutorial do Balanço Financeiro Mensal (manual)</p>
-            <button onclick="redirectToTutorial()">Acessar</button>
-            <button onclick="closeTutorialModal()">Fechar</button>
+            <!-- Tutorial 07/04 -->
+            <div class="tutorial-entry">
+                <p>07/04/2025 - Tutorial do Balanço Financeiro Mensal (manual)</p>
+                <button onclick="redirectToTutorial()">Acessar</button>
+                <button onclick="closeTutorialModal()">Fechar</button>
+            </div>
+            <!-- Tutorial 09/04 com funcionalidade de vídeo -->
+            <div class="tutorial-entry">
+                <p>09/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (manual)</p>
+                <button onclick="openVideoModal()">Acessar</button>
+                <button onclick="closeTutorialModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Vídeo -->
+    <div class="modal" id="video-modal">
+        <div class="modal-content" style="max-width: 800px; width: 90%;">
+            <!-- A tag iframe foi alterada para não ter src estático; este será definido via JavaScript para incluir autoplay -->
+            <iframe id="video-iframe" frameborder="0" allow="autoplay" allowfullscreen style="width: 100%; height: 450px;"></iframe>
+            <button onclick="closeVideoModal()">Fechar</button>
         </div>
     </div>
 
@@ -312,7 +305,6 @@
             const loginArea = document.getElementById("login-area");
             const mainContent = document.getElementById("main-content");
             const headerButtons = document.getElementById("header-buttons");
-
             if (password === "adm123") {
                 loginArea.style.display = "none";
                 mainContent.style.display = "block";
@@ -321,44 +313,47 @@
                 errorMessage.style.display = "block";
             }
         }
-
         function handleKeyPress(event) {
             if (event.key === "Enter") {
                 validatePassword();
             }
         }
-
         function logout() {
             location.reload(); // Recarrega a página para retornar ao login
         }
-
         function openModal() {
             document.getElementById("support-modal").style.display = "flex";
         }
-
         function closeModal() {
             document.getElementById("support-modal").style.display = "none";
         }
-
         function redirectToManual() {
             window.open("https://codefactorype.github.io/mccpepaulocanellesrecife-manual/", "_blank");
         }
-
         function redirectToAuto() {
             window.open("https://codefactorype.github.io/mccpepaulocanellesrecife-auto/", "_blank");
         }
-
-        // Funções para o modal de Tutorial
+        // Funções para o Modal de Tutorial
         function openTutorialModal() {
             document.getElementById("tutorial-modal").style.display = "flex";
         }
-
         function closeTutorialModal() {
             document.getElementById("tutorial-modal").style.display = "none";
         }
-
         function redirectToTutorial() {
             window.open("https://codefactorype.github.io/mccpcanellesrecife-tutorial-manual/", "_blank");
+        }
+        // Funções para o Modal de Vídeo (09/04)
+        function openVideoModal() {
+            // Define o src do iframe com parâmetro autoplay para iniciar a reprodução automaticamente
+            var videoUrl = "https://drive.google.com/file/d/1tYwhokqQs51SL2ip2KG0O3RZ_jhETRX6/preview?autoplay=1";
+            document.getElementById("video-iframe").src = videoUrl;
+            document.getElementById("video-modal").style.display = "flex";
+        }
+        function closeVideoModal() {
+            // Remove o src para interromper a reprodução
+            document.getElementById("video-iframe").src = "";
+            document.getElementById("video-modal").style.display = "none";
         }
     </script>
 </body>

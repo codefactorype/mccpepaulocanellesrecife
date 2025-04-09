@@ -283,17 +283,9 @@
             <!-- Tutorial 09/04 com funcionalidade de vídeo -->
             <div class="tutorial-entry">
                 <p>09/04/2025 Tutorial em Vídeo do Balanço Financeiro Mensal (manual)</p>
-                <button onclick="openVideoModal()">Acessar</button>
+                <button onclick="redirectToVideo()">Acessar</button>
                 <button onclick="closeTutorialModal()">Fechar</button>
             </div>
-        </div>
-    </div>
-
-    <!-- Modal de Vídeo -->
-    <div class="modal" id="video-modal">
-        <div class="modal-content" style="max-width: 800px; width: 90%;">
-            <iframe id="video-iframe" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="width: 100%; height: 450px;"></iframe>
-            <button onclick="closeVideoModal()">Fechar</button>
         </div>
     </div>
 
@@ -342,15 +334,10 @@
         function redirectToTutorial() {
             window.open("https://codefactorype.github.io/mccpcanellesrecife-tutorial-manual/", "_blank");
         }
-        // Funções para o Modal de Vídeo (09/04)
-        function openVideoModal() {
+        // Função para abrir o vídeo em uma nova aba
+        function redirectToVideo() {
             var videoUrl = "https://drive.google.com/file/d/1tYwhokqQs51SL2ip2KG0O3RZ_jhETRX6/preview?autoplay=1";
-            document.getElementById("video-iframe").src = videoUrl;
-            document.getElementById("video-modal").style.display = "flex";
-        }
-        function closeVideoModal() {
-            document.getElementById("video-iframe").src = "";
-            document.getElementById("video-modal").style.display = "none";
+            window.open(videoUrl, "_blank");
         }
     </script>
 </body>
